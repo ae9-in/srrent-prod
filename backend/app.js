@@ -9,10 +9,22 @@ import { notFound } from './middleware/notFound.js'
 
 const app = express()
 
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true
+  if (env.CLIENT_URLS.includes(origin)) return true
+
+  try {
+    const { hostname } = new URL(origin)
+    return hostname.endsWith('.vercel.app')
+  } catch {
+    return false
+  }
+}
+
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || env.CLIENT_URLS.includes(origin)) {
+      if (isAllowedOrigin(origin)) {
         return callback(null, true)
       }
 
