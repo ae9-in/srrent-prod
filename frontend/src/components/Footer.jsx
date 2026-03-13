@@ -1,8 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Phone, MapPin, Instagram, Facebook, Youtube } from 'lucide-react'
+import { Phone, Instagram, Facebook, Youtube } from 'lucide-react'
 
 const primaryPhone = '8431119696'
-const address = '48, Church St, Haridevpur, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560001'
 const footerProducts = [
   'Sandalwood Agarbatti',
   'Rose Agarbatti',
@@ -102,12 +101,6 @@ export default function Footer() {
           <div>
             <h3 className="font-cinzel text-golden-300 font-semibold tracking-wider mb-5 text-sm uppercase">Contact Us</h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-golden-400 mt-1 shrink-0" />
-                <span className="font-playfair text-golden-100 text-[1.05rem] leading-8 tracking-normal max-w-[24ch]">
-                  {address}
-                </span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-golden-400 shrink-0" />
                 <a href="tel:+918431119696" className="font-playfair text-golden-100 hover:text-golden-300 text-[1.05rem] tracking-normal transition-colors">{primaryPhone}</a>
