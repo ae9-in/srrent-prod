@@ -50,7 +50,7 @@ function HeroSection() {
           <span className="text-golden-700">ॐ</span>
         </div>
 
-        <h1 className="font-cinzel font-bold mb-6 text-golden-900" style={{ fontSize: 'clamp(2.2rem,7vw,5.5rem)', lineHeight: 1.1, textShadow: '0 8px 24px rgba(255,244,221,0.28)' }}>
+        <h1 className="font-cinzel font-bold mb-6 text-golden-900" style={{ fontSize: 'clamp(2.2rem,7vw,5.5rem)', lineHeight: 1.1, textShadow: '0 3px 6px rgba(255,244,221,0.18), 0 18px 30px rgba(84,46,18,0.24)' }}>
           {title.split('').map((char, index) => (
             <span key={index} className={index < charIdx ? 'hero-title-char' : ''} style={{ display: 'inline-block', opacity: index < charIdx ? 1 : 0, marginRight: char === ' ' ? '0.3em' : 0, transition: 'opacity .15s' }}>
               {char}
@@ -82,10 +82,11 @@ function HeroSection() {
         @keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
         @keyframes fadeUp  { from { opacity: 0; transform: translateY(28px) } to { opacity: 1; transform: none } }
         .hero-title-char {
-          background: linear-gradient(180deg, #fff6e7 0%, #f3d39c 20%, #9d632e 70%, #5b3518 100%);
+          background: linear-gradient(180deg, #fff4da 0%, #f0cb86 18%, #b26e33 52%, #6f3f1a 78%, #3b1e0a 100%);
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
+          filter: drop-shadow(0 2px 0 rgba(255, 247, 230, 0.28)) drop-shadow(0 10px 18px rgba(67, 36, 14, 0.24));
         }
       `}</style>
     </section>

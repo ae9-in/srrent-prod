@@ -3,10 +3,14 @@ dist/
 build/
 .vite/
 .cache/
+coverage/
 
 .env
 .env.local
+.env.*
 .env.*.local
+!.env.example
+!.env.*.example
 
 frontend/node_modules/
 frontend/dist/
@@ -26,3 +30,4 @@ pnpm-debug.log*
 Thumbs.db
 .idea/
 .vscode/
+.vercel/
