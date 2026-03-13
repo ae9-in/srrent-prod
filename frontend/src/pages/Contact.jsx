@@ -1,15 +1,11 @@
 import { useState } from 'react'
-import { Phone, MapPin, MessageCircle, Send, CheckCircle, Package, AlertCircle } from 'lucide-react'
+import { Phone, MessageCircle, Send, CheckCircle, Package, AlertCircle } from 'lucide-react'
 import api from '../lib/api'
 
 const emptyForm = { name: '', shopName: '', phone: '', email: '', city: '', productInterest: '', quantity: '', message: '' }
 const primaryPhone = '8431119696'
 const primaryPhoneHref = 'tel:+918431119696'
 const whatsappHref = 'https://wa.me/918431119696'
-const addressLines = [
-  '48, Church St, Haridevpur, Shanthala Nagar,',
-  'Ashok Nagar, Bengaluru, Karnataka 560001',
-]
 
 export default function Contact() {
   const [form, setForm] = useState(emptyForm)
@@ -39,20 +35,19 @@ export default function Contact() {
   const contactCards = [
     { Icon: Phone, title: 'Call Us', lines: [primaryPhone], hint: 'Reach us directly for product enquiries', href: primaryPhoneHref, btn: 'Call Now' },
     { Icon: MessageCircle, title: 'WhatsApp Us', lines: [primaryPhone], hint: 'Send your product list for a quick response', href: whatsappHref, btn: 'WhatsApp' },
-    { Icon: MapPin, title: 'Visit Us', lines: addressLines, hint: 'Bengaluru, Karnataka', href: 'https://maps.google.com/?q=48, Church St, Haridevpur, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560001', btn: 'Get Directions' },
   ]
 
   const steps = [
-    { icon: '📋', num: '01', title: 'Submit Inquiry', desc: 'Fill the form or send your product list on WhatsApp.' },
-    { icon: '💬', num: '02', title: 'Get Quote', desc: 'We share product details and pricing with you.' },
-    { icon: '✅', num: '03', title: 'Confirm Order', desc: 'Approve the order and confirm quantity requirements.' },
-    { icon: '📦', num: '04', title: 'Dispatch', desc: 'Your order is prepared and dispatched after confirmation.' },
+    { Icon: Send, num: '01', title: 'Submit Inquiry', desc: 'Fill the form or send your product list on WhatsApp.' },
+    { Icon: MessageCircle, num: '02', title: 'Get Quote', desc: 'We share product details and pricing with you.' },
+    { Icon: CheckCircle, num: '03', title: 'Confirm Order', desc: 'Approve the order and confirm quantity requirements.' },
+    { Icon: Package, num: '04', title: 'Dispatch', desc: 'Your order is prepared and dispatched after confirmation.' },
   ]
 
   return (
     <main className="pt-20 min-h-screen" style={{ background: 'linear-gradient(180deg,#fdf8ee,#f4e0c0 40%,#fdf8ee)' }}>
       <section className="relative py-16 sm:py-24 overflow-hidden text-center" style={{ background: 'linear-gradient(135deg,#3d2510,#7d502a,#c9965a)' }}>
-        <div className="absolute font-cinzel text-golden-400/5 select-none pointer-events-none" style={{ fontSize: '25vw', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>ॐ</div>
+        <div className="absolute font-cinzel text-golden-400/5 select-none pointer-events-none" style={{ fontSize: '25vw', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>Om</div>
         <div className="relative max-w-3xl mx-auto px-4">
           <div className="glass inline-flex items-center gap-2 px-4 py-2 rounded-full border border-golden-400/30 mb-5">
             <Package size={14} className="text-golden-300" />
@@ -64,11 +59,11 @@ export default function Contact() {
       </section>
 
       <section className="py-12 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-5">
           {contactCards.map(({ Icon, title, lines, hint, href, btn }) => (
             <div key={title} className="card-hover glass rounded-2xl p-6 border border-golden-200/50 text-center group">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-golden-200 to-golden-300 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Icon size={22} className="text-golden-700" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-golden-200 to-golden-300 flex items-center justify-center mx-auto mb-4 shadow-[0_10px_24px_rgba(128,79,35,0.14)] group-hover:scale-110 transition-transform duration-300">
+                <Icon size={22} strokeWidth={1.9} className="text-golden-700" />
               </div>
               <h3 className="font-cinzel text-golden-800 text-sm font-semibold tracking-wide mb-3">{title}</h3>
               <div className="min-h-[88px] flex flex-col items-center justify-center">
@@ -89,13 +84,15 @@ export default function Contact() {
 
       <section className="py-14 sm:py-20" style={{ background: 'linear-gradient(135deg,#9e6b35,#c9965a)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="divider mb-4"><span className="text-cream-200/60">ॐ</span></div>
+          <div className="divider mb-4"><span className="text-cream-200/60">Om</span></div>
           <h2 className="font-cinzel text-3xl sm:text-4xl font-bold text-cream-100 mb-3">How to Place an Order</h2>
           <p className="font-cormorant text-cream-200 text-xl mb-12">Simple 4-step process to order from SRR Pooja Works</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map(({ icon, num, title, desc }) => (
+            {steps.map(({ Icon, num, title, desc }) => (
               <div key={num} className="text-center">
-                <div className="w-14 h-14 rounded-2xl bg-cream-100/10 border border-cream-200/30 flex items-center justify-center mx-auto mb-4 text-2xl">{icon}</div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cream-100/18 to-cream-100/8 border border-cream-200/30 shadow-[0_12px_30px_rgba(89,50,18,0.12)] flex items-center justify-center mx-auto mb-4">
+                  <Icon size={24} strokeWidth={1.8} className="text-cream-100" />
+                </div>
                 <div className="font-cinzel text-golden-300 text-xs font-bold tracking-widest mb-2">STEP {num}</div>
                 <h3 className="font-playfair text-cream-100 text-lg font-semibold mb-2">{title}</h3>
                 <p className="font-cormorant text-cream-200 text-base">{desc}</p>
@@ -108,7 +105,7 @@ export default function Contact() {
       <section className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="divider mb-4"><span className="text-golden-500 text-xl">ॐ</span></div>
+            <div className="divider mb-4"><span className="text-golden-500 text-xl">Om</span></div>
             <h2 className="font-cinzel text-3xl sm:text-4xl font-bold text-golden-700 mb-3">Send Inquiry</h2>
             <p className="font-cormorant text-golden-600 text-xl">Fill the form and we will get back to you with product details.</p>
           </div>
